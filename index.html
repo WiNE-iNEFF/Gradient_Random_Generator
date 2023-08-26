@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gradient Random Generator</title>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon.ico">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
+	<link rel="manifest" href="img/site.webmanifest">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Simple gradient random generator for easier selection of gradients for you nedds.">
+	<meta name="keywords" content="HTML, Python, Gradient generator, random generator, random gradient, gradient pallete,WiNE-iNEFF, wine_ineff, WiNE iNEFF, wine-ineff, artsem holub, Artsem Holub, Artsem Holub WiNE iNEFF, Artsem Holub WiNE-iNEFF, Artsem Holub WiNE_iNEFF, Artsem Holub wine_ineff, Artsem Holub wine ineff, Артём Голуб WiNE-iNEFF, Артём Голуб WiNE_iNEFF, Артём Голуб WiNE iNEFF, Артём Голуб wine_ineff, Gradient Random Generator, github">
+  	<meta name="author" content="Artsem Holub (WiNE iNEFF)">
+
+  	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://wine-ineff.github.io/Gradient_Random_Generator/">
+	<meta property="og:title" content="Gradient Random Generator">
+	<meta property="og:description" content="Simple gradient random generator for easier selection of gradients for you nedds.">
+	<meta property="og:image" content="img/wine-ineff.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://wine-ineff.github.io/Gradient_Random_Generator/">
+	<meta property="twitter:title" content="Gradient Random Generator">
+	<meta property="twitter:description" content="Simple gradient random generator for easier selection of gradients for you nedds.">
+	<meta property="twitter:image" content="img/wine-ineff.png">
+
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+		*{
+			margin: 0; padding: 0;
+			font-family: 'Rubik', sans-serif;
+			overflow: hidden;
+		}
+		p,
+		a,
+		a:hover{
+			text-decoration: none;
+			color: white;
+			text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+			margin-top: 1%;
+		}
+		body{
+			color: white; text-align: center;
+			background-size: cover;
+			background-attachment: fixed;
+			background-repeat: no-repeat;
+			height: 100vh; width: 100vw;
+		}
+		.big_text{
+			font-size: 40.17px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 100%; /* 99.17px */
+			text-transform: uppercase;
+			text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+		}
+		input{
+			font-size: 14px;
+			background-color: rgba(255, 255, 255, 0.4);
+			border: none; padding: 10px 25px 10px 25px; 
+		}
+		input:hover{
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+		.change{
+			border-bottom-left-radius: 25px; border-top-left-radius: 25px;
+			margin-top: 2%;
+		}
+		.copy{
+			border-bottom-right-radius: 25px; border-top-right-radius: 25px;
+		}
+	</style>
+</head>
+<body id='grad'>
+	<div style="font-size: 0; padding-top: 30%;">
+		<p class="big_text">Gradient Random<br>Generator</p>
+		<input type="button" class="change" value="New" onclick="change_grad()"/>
+		<input type="button" class="copy" value="Copy" onclick="copy_cli()"/>
+	</div>
+	<p>This "Gradient Generator" made by<br><a href="https://twitter.com/wine_ineff" target="_blank">Artsem Holub (WiNE-iNEFF)</a></p>
+	
+
+	<script type="text/javascript">
+		var body = document.getElementById('grad');
+
+		function change_grad() {
+			var gradient = "linear-gradient(" + Math.floor(Math.random() * 360) + "deg, rgb(" + Math.floor(Math.random() * 255) + ", " + Math.floor(Math.random() * 255) + ", " + Math.floor(Math.random() * 255) + "), rgb(" + Math.floor(Math.random() * 255) + ", " + Math.floor(Math.random() * 255) + ", " + Math.floor(Math.random() * 255) + "))";
+
+			body.style.background = gradient;
+		}
+
+		function copy_cli() {
+			var gradient = body.style.background;
+
+			navigator.clipboard.writeText(gradient + ';');
+			alert("Copied the text: " + gradient + ';');
+		}
+
+		window.addEventListener('load', function() {
+			change_grad();
+		})
+	</script>
+</body>
+</html>
