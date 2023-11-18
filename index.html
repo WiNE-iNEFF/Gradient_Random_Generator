@@ -9,9 +9,10 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
 	<link rel="manifest" href="img/site.webmanifest">
 	
+	<meta name="title" content="Gradient Random Generator">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Simple gradient random generator for easier selection of gradients for you needs.">
-	<meta name="keywords" content="HTML, Python, Gradient generator, random generator, random gradient, gradient pallete,WiNE-iNEFF, wine_ineff, WiNE iNEFF, wine-ineff, artsem holub, Artsem Holub, Artsem Holub WiNE iNEFF, Artsem Holub WiNE-iNEFF, Artsem Holub WiNE_iNEFF, Artsem Holub wine_ineff, Artsem Holub wine ineff, Артём Голуб WiNE-iNEFF, Артём Голуб WiNE_iNEFF, Артём Голуб WiNE iNEFF, Артём Голуб wine_ineff, Gradient Random Generator, github">
+	<meta name="description" content="Simple Gradient Random generator for easier selection of gradients for you needs.">
+	<meta name="keywords" content="HTML, Python, Gradient generator, random generator, random gradient, gradient pallete,WiNE-iNEFF, wine_ineff, WiNE iNEFF, wine-ineff, artsem holub, Artsem Holub, Artsem Holub WiNE iNEFF, Artsem Holub WiNE-iNEFF, Artsem Holub WiNE_iNEFF, Artsem Holub wine_ineff, Artsem Holub wine ineff, Артём Голуб WiNE-iNEFF, Артём Голуб WiNE_iNEFF, Артём Голуб WiNE iNEFF, Артём Голуб wine_ineff, Gradient Random Generator, github, gradient, web, web design, design, colorful gradient, Дизайн, градиенты, генератор градиентов, веб-дизайн, дизайн, цветовые градиенты, инструметы дизайнера">
   	<meta name="author" content="Artsem Holub (WiNE iNEFF)">
 
   	<!-- Open Graph / Facebook -->
@@ -81,7 +82,7 @@
 	<div style="font-size: 0; padding-top: 30%;">
 		<p class="big_text">Gradient Random<br>Generator</p>
 		<input type="button" class="change" value="New" onclick="change_grad()"/>
-		<input type="button" class="copy" value="Copy" onclick="copy_cli()"/>
+		<input type="button" class="copy" value="Copy" onclick="copy_cli(this)"/>
 	</div>
 	<p>This "Gradient Generator" made by<br><a href="https://twitter.com/wine_ineff" target="_blank">Artsem Holub (WiNE-iNEFF)</a></p>
 	
@@ -95,11 +96,14 @@
 			body.style.background = gradient;
 		}
 
-		function copy_cli() {
+		function copy_cli(button) {
 			var gradient = body.style.background;
+			navigator.clipboard.writeText('background: ' + gradient + ';');
 
-			navigator.clipboard.writeText(gradient + ';');
-			alert("Copied the text: " + gradient + ';');
+			button.value = 'Copied';
+			setTimeout(function() {
+				button.value = 'Copy';
+			}, 500);
 		}
 
 		window.addEventListener('load', function() {
